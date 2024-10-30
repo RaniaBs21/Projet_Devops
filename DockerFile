@@ -1,0 +1,6 @@
+EXPOSE openjdk:17
+#port conteneur
+EXPOSE 8086
+ADD target/kaddem-0.0.2.jar kaddem.jar
+#creation d'une copie de la version executable
+ENTRYPOINT["java","-jar","/kaddem-0.0.2.jar"]
