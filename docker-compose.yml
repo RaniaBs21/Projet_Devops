@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+
+  app-kaddem:
+    build:
+      context: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/kaddem?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+      - spring.jpa.hibernate.ddl-auto=update
+    ports:
+      - "8089:8089"
+    image: "nourkhalfaoui/kaddem:0.0.2"
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: "mysql:5.7"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=kaddem
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db :
