@@ -13,7 +13,7 @@ services:
       - spring.jpa.hibernate.ddl-auto=update
     ports:
       - "8089:8089"
-    image: "rzaabarsalsabil/kaddem-app"
+    image: "zaabarsalsabil/kaddem-app"
     depends_on:
       - mysqldb
 
