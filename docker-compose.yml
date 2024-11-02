@@ -1,6 +1,6 @@
 version: "3.3"
-services:
 
+services:
   app-kaddem:
     build:
       context: .
@@ -12,7 +12,7 @@ services:
       - spring.jpa.hibernate.ddl-auto=update
     ports:
       - "8089:8089"
-    image: "nourkhalfaoui/kaddem:0.0.2"
+    image: "nourkhalfaoui/kaddem:0.0.3"
     depends_on:
       - mysqldb
 
@@ -22,9 +22,9 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=kaddem
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - db:/var/lib/mysql
 
 volumes:
-  db :
+  db:
