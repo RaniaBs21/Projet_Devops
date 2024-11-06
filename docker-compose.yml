@@ -1,8 +1,6 @@
 version: "3.3"
 services:
   app-kaddem:
-    build:
-      context: .
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/kaddem?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
